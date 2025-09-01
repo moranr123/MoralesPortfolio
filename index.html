@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mark Morales • Portfolio</title>
+  <style>
+    :root{
+      --bg:#0f1223;
+      --panel:#171a2e;
+      --muted:#9aa3b2;
+      --text:#eef2ff;
+      --accent:#7c5cff;
+      --accent-2:#2ee6a6;
+      --ring:#5b85ff33;
+      --radius:18px;
+      --shadow:0 10px 30px rgba(0,0,0,.35);
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;height:100%;background:radial-gradient(1200px 800px at 10% -10%, #1b1f3a 0%, rgba(27,31,58,0) 60%), radial-gradient(900px 700px at 100% 10%, #171a2e 0%, rgba(23,26,46,0) 65%), var(--bg); color:var(--text); font:16px/1.6 system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, "Helvetica Neue", Arial}
+    a{color:var(--accent); text-decoration:none}
+    a:hover{text-decoration:underline}
+    .container{max-width:1100px;margin:0 auto;padding:24px}
+    header{position:sticky; top:0; z-index:20; backdrop-filter: blur(8px); background:#0f1223cc; border-bottom:1px solid #20243f}
+    .nav{display:flex;align-items:center;justify-content:space-between;gap:16px}
+    .brand{display:flex;align-items:center;gap:16px}
+    .profile-pic{width:80px;height:80px;border-radius:50%;object-fit:cover;border:2px solid var(--accent);box-shadow:0 0 0 4px rgba(124, 92, 255, 0.2)}
+    .nav a{padding:10px 12px;border-radius:10px;transition:all 0.2s ease}
+    .nav a:hover{background:#ffffff0d;transform:translateY(-1px)}
+    .hero{display:grid;grid-template-columns:1.1fr .9fr;gap:28px;align-items:center;padding:40px 0 24px}
+    .hero-card{background:linear-gradient(180deg, #1a1f3a 0%, #14182e 100%); border:1px solid #20243f; border-radius:var(--radius); padding:28px; box-shadow:var(--shadow)}
+    .hero h1{margin:0 0 10px; font-size:clamp(28px, 4.5vw, 42px); line-height:1.2}
+    .badge{display:inline-flex;align-items:center;gap:8px; padding:6px 10px; border-radius:999px; background:#ffffff10; border:1px solid #2a2e4a; font-size:13px; color:var(--muted)}
+    .cta{display:flex;gap:12px;margin-top:18px;flex-wrap:wrap}
+    .btn{display:inline-flex;align-items:center;gap:10px;background:var(--accent); color:white; padding:12px 16px; border-radius:12px; border:none; cursor:pointer; font-weight:600; box-shadow:0 10px 22px #7c5cff40;transition:all 0.2s ease}
+    .btn:hover{transform:translateY(-2px);box-shadow:0 15px 30px #7c5cff60}
+    .btn.secondary{background:#ffffff10; color:var(--text); border:1px solid #2a2e4a; box-shadow:none}
+    .btn.secondary:hover{background:#ffffff20;border-color:var(--accent)}
+    section{padding:26px 0}
+    .section-title{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px}
+    .section-title h2{margin:0; font-size:clamp(20px, 3vw, 28px)}
+    .grid{display:grid; gap:16px}
+    .grid.cols-3{grid-template-columns:repeat(3, 1fr)}
+    .grid.cols-2{grid-template-columns:repeat(2, 1fr)}
+    @media (max-width:900px){ .hero{grid-template-columns:1fr} .grid.cols-3{grid-template-columns:1fr 1fr} }
+    @media (max-width:640px){ .grid.cols-3, .grid.cols-2{grid-template-columns:1fr} }
+    .card{background:linear-gradient(180deg, #171b34, #14182e); border:1px solid #20243f; border-radius:16px; padding:18px; transition:transform .15s ease, box-shadow .15s ease; box-shadow:var(--shadow)}
+    .card:hover{transform:translateY(-3px); box-shadow:0 16px 40px rgba(0,0,0,.4)}
+    .card small{color:var(--muted)}
+    .chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+    .chip{font-size:12px;padding:6px 10px;border:1px solid #2a2e4a;color:var(--muted); border-radius:999px; background:#ffffff08}
+    .list{display:grid; gap:10px}
+    .list-item{display:flex;align-items:center;gap:12px;padding:12px;border:1px solid #222548;border-radius:12px;background:#ffffff08}
+    .list-item b{font-weight:600}
+    .contact{display:grid;grid-template-columns:1.1fr .9fr;gap:16px}
+    @media (max-width:900px){ .contact{grid-template-columns:1fr} }
+    .panel{background:#ffffff08;border:1px solid #222548;padding:18px;border-radius:16px}
+    input, textarea{width:100%; background:#0f1327; color:var(--text); border:1px solid #2a2e4a; border-radius:12px; padding:12px; outline:none;transition:all 0.2s ease}
+    input:focus, textarea:focus{border-color:#5b85ff; box-shadow:0 0 0 6px var(--ring)}
+    label{font-size:14px;color:var(--muted);margin-bottom:6px;display:block}
+    footer{padding:28px 0; color:#9aa3b2; text-align:center; border-top:1px solid #20243f; margin-top:24px}
+    .anchor{scroll-margin-top:80px}
+    .mono{font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace; font-size:.95rem}
+    .skills-grid{display:grid;grid-template-columns:repeat(auto-fit, minmax(200px, 1fr));gap:16px;margin-top:16px}
+    .skill-card{background:linear-gradient(135deg, #1a1f3a, #14182e);border:1px solid #20243f;border-radius:12px;padding:16px;text-align:center}
+    .skill-card h4{margin:0 0 8px;color:var(--accent)}
+    .skill-card p{margin:0;font-size:14px;color:var(--muted)}
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="container nav">
+      <div class="brand">
+        <img src="profile.jpg" alt="Mark Morales" class="profile-pic">
+        <div>
+          <div class="mono">MARK KEANON MORALES</div>
+          <small style="color:var(--muted)">Aspiring UI/UX Designer</small>
+        </div>
+      </div>
+      <nav class="mono" aria-label="Primary">
+        <a href="#about">About</a>
+        <a href="#work">Work</a>
+        <a href="#certs">Certifications</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+      <!-- Hero -->
+      <section class="hero">
+          <div class="hero-card">
+              <span class="badge">📍 Based in PH • Open to opportunities</span>
+              <h1>Building useful things with code & design.</h1>
+              <p style="margin:0;color:var(--muted)">
+                  I'm a <b>UI/UX Designer</b> focused on <b>Prototyping</b>. I enjoy turning ideas
+                  into reliable, user-friendly products—especially for the web.
+              </p>
+              <div class="cta">
+                  <a class="btn" href="#work">🚀 View Work</a>
+                  <a class="btn secondary" href="#contact">✉️ Contact Me</a>
+              </div>
+          </div>
+          <div class="hero-card" role="img" aria-label="Profile summary">
+              <h3 style="margin-top:0">Quick Stats</h3>
+              <div class="grid cols-2">
+                  <div class="card">
+                      <small>Focus Areas</small>
+                      <div class="chips">
+                          <span class="chip">Web Dev</span><span class="chip">UI/UX</span>
+                      </div>
+                  </div>
+                  <div class="card">
+                      <small>Currently Learning</small>
+                      <div class="chips">
+                          <span class="chip">HTML</span><span class="chip">CSS</span><span class="chip">JavaScript</span>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </section>
+
+      <!-- About -->
+      <section id="about" class="anchor">
+          <div class="section-title">
+              <h2>About Me</h2>
+          </div>
+          <div class="card">
+              <p>
+                  Hi! I'm <b>Mark Morales</b>, an aspiring <b>IT Student</b> with a passion for
+                  building practical, human-centered solutions. I love turning problem statements into
+                  clean interfaces and well-structured systems.
+              </p>
+              <p style="color:var(--muted); margin:0">
+                  Strengths: problem solving, collaboration, and rapid learning. I'm seeking roles
+                  or internships where I can contribute and grow.
+              </p>
+          </div>
+          
+          <div class="skills-grid">
+              <div class="skill-card">
+                  <h4>🎨 Design</h4>
+                  <p>UI/UX, Prototyping, Wireframing</p>
+              </div>
+              <div class="skill-card">
+                  <h4>💻 Development</h4>
+                  <p>HTML, CSS, JavaScript, Node.js</p>
+              </div>
+              <div class="skill-card">
+                  <h4>🔧 Tools</h4>
+                  <p>Figma, Adobe XD, VS Code</p>
+              </div>
+              <div class="skill-card">
+                  <h4>📱 Platforms</h4>
+                  <p>Web, Mobile, IoT</p>
+              </div>
+          </div>
+      </section>
+
+      <!-- Work Samples -->
+      <section id="work" class="anchor">
+          <div class="section-title">
+              <h2>Work Samples</h2>
+          </div>
+          <div class="grid cols-3">
+              <article class="card">
+                  <h3 style="margin:.2rem 0">ECO • Smart Waste Management</h3>
+                  <small>IoT • GPS • Route Optimization</small>
+                  <p>Prototype that uses sensors & simple analytics to optimize collection routes and reduce fuel usage.</p>
+                  <div class="chips"><span class="chip">JS</span><span class="chip">Node</span><span class="chip">Maps</span></div>
+              </article>
+              <article class="card">
+                  <h3 style="margin:.2rem 0">Portfolio Website</h3>
+                  <small>Web Design • Responsive</small>
+                  <p>Personal portfolio showcasing my skills and projects with modern design principles.</p>
+                  <div class="chips"><span class="chip">HTML</span><span class="chip">CSS</span><span class="chip">JS</span></div>
+              </article>
+              <article class="card">
+                  <h3 style="margin:.2rem 0">UI/UX Concepts</h3>
+                  <small>Design • Prototyping</small>
+                  <p>Various UI/UX concepts and prototypes for mobile and web applications.</p>
+                  <div class="chips"><span class="chip">Figma</span><span class="chip">Adobe XD</span><span class="chip">Prototyping</span></div>
+              </article>
+          </div>
+      </section>
+
+      <!-- Certifications -->
+      <section id="certs" class="anchor">
+          <div class="section-title">
+              <h2>Certifications</h2>
+          </div>
+          <div class="grid cols-2">
+              <div class="card">
+                  <b>Electronic Servicing (NC II)</b>
+                  <p style="color:var(--muted); margin:.3rem 0 0">TESDA — 2021</p>
+              </div>
+              <div class="card">
+                  <b>Contact Center Service (NC II)</b>
+                  <p style="color:var(--muted); margin:.3rem 0 0">Panasiatic — 2017</p>
+              </div>
+          </div>
+      </section>
+
+      <!-- Contact -->
+      <section id="contact" class="anchor">
+          <div class="section-title">
+              <h2>Contact</h2>
+          </div>
+          <div class="contact">
+              <div class="panel">
+                  <h3 style="margin-top:0">Details</h3>
+                  <div class="list">
+                      <div class="list-item">📧 <b>Email:</b> moralesmark009@gmail.com</div>
+                      <div class="list-item">📱 <b>Phone:</b> +63 9544132490</div>
+                      <div class="list-item">🔗 <b>Links:</b> <a href="#" aria-label="Portfolio link">Portfolio</a> • <a href="#" aria-label="GitHub link">GitHub</a></div>
+                  </div>
+              </div>
+              <form class="panel" onsubmit="event.preventDefault(); alert('Thanks! Your message was staged for sending.');">
+                  <h3 style="margin-top:0">Send a Message</h3>
+                  <label for="name">Name</label>
+                  <input id="name" name="name" placeholder="Your Name" required />
+                  <div style="height:10px"></div>
+                  <label for="email">Email</label>
+                  <input id="email" name="email" type="email" placeholder="Your Email" required />
+                  <div style="height:10px"></div>
+                  <label for="msg">Message</label>
+                  <textarea id="msg" name="message" rows="4" placeholder="How can I help?" required></textarea>
+                  <div style="height:14px"></div>
+                  <button class="btn" type="submit">Send Message</button>
+              </form>
+          </div>
+      </section>
+  </main>
+
+  <footer>
+    © <span id="year"></span> Mark Morales. All rights reserved.
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
