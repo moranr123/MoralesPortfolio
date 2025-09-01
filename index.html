@@ -21,7 +21,7 @@
     a{color:var(--accent); text-decoration:none}
     a:hover{text-decoration:underline}
     .container{max-width:1100px;margin:0 auto;padding:24px}
-    main{padding-top:100px}
+    main{padding-top:120px}
     header{position:fixed; top:0; left:0; right:0; z-index:20; backdrop-filter: blur(8px); background:#0f1223cc; border-bottom:1px solid #20243f}
     .nav{display:flex;align-items:center;justify-content:space-between;gap:16px}
     .brand{display:flex;align-items:center;gap:16px}
@@ -45,6 +45,50 @@
     .grid.cols-2{grid-template-columns:repeat(2, 1fr)}
     @media (max-width:900px){ .hero{grid-template-columns:1fr} .grid.cols-3{grid-template-columns:1fr 1fr} }
     @media (max-width:640px){ .grid.cols-3, .grid.cols-2{grid-template-columns:1fr} }
+    
+        /* Mobile responsive header */
+    @media (max-width: 768px) {
+      .nav {
+        flex-direction: column;
+        gap: 12px;
+        padding: 16px 0;
+      }
+      
+      .brand {
+        justify-content: center;
+        text-align: center;
+      }
+      
+      .brand .mono {
+        font-size: 14px;
+      }
+      
+      nav {
+        display: none;
+      }
+      
+      main {
+        padding-top: 100px;
+      }
+      
+      .container {
+        padding: 16px;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .nav {
+        padding: 12px 0;
+      }
+      
+      .brand .mono {
+        font-size: 13px;
+      }
+      
+      main {
+        padding-top: 90px;
+      }
+    }
     .card{background:linear-gradient(180deg, #171b34, #14182e); border:1px solid #20243f; border-radius:16px; padding:18px; transition:transform .15s ease, box-shadow .15s ease; box-shadow:var(--shadow)}
     .card:hover{transform:translateY(-3px); box-shadow:0 16px 40px rgba(0,0,0,.4)}
     .card small{color:var(--muted)}
@@ -71,6 +115,34 @@
     .skill-card{background:linear-gradient(135deg, #1a1f3a, #14182e);border:1px solid #20243f;border-radius:12px;padding:16px;text-align:center}
     .skill-card h4{margin:0 0 8px;color:var(--accent)}
     .skill-card p{margin:0;font-size:14px;color:var(--muted)}
+    
+    /* Profile Info in About Section */
+    .profile-info{display:flex;align-items:center;gap:24px;margin-bottom:24px;padding:24px;background:linear-gradient(135deg, #1a1f3a, #14182e);border:1px solid #20243f;border-radius:var(--radius);box-shadow:var(--shadow)}
+    .about-profile-pic{width:120px;height:120px;border-radius:50%;object-fit:cover;border:3px solid var(--accent);box-shadow:0 0 0 8px rgba(124, 92, 255, 0.2)}
+    .profile-details h3{margin:0 0 8px;font-size:24px;color:var(--text)}
+    .job-title{margin:0 0 8px;font-size:18px;color:var(--accent);font-weight:600}
+    .location{margin:0;color:var(--muted);font-size:14px}
+    
+    @media (max-width: 768px) {
+      .profile-info {
+        flex-direction: column;
+        text-align: center;
+        gap: 16px;
+      }
+      
+      .about-profile-pic {
+        width: 100px;
+        height: 100px;
+      }
+      
+      .profile-details h3 {
+        font-size: 20px;
+      }
+      
+      .job-title {
+        font-size: 16px;
+      }
+    }
   </style>
 </head>
 <body>
@@ -78,11 +150,7 @@
   <header>
     <div class="container nav">
       <div class="brand">
-        <img src="profile.jpg" alt="Mark Morales" class="profile-pic">
-        <div>
-          <div class="mono">MARK KEANON MORALES</div>
-          <small style="color:var(--muted)">Aspiring UI/UX Designer</small>
-        </div>
+        <div class="mono">MARK KEANON MORALES</div>
       </div>
       <nav class="mono" aria-label="Primary">
         <a href="#about">About</a>
@@ -97,7 +165,6 @@
       <!-- Hero -->
       <section class="hero">
           <div class="hero-card">
-              <span class="badge">📍 Based in PH • Open to opportunities</span>
               <h1>Building useful things with code & design.</h1>
               <p style="margin:0;color:var(--muted)">
                   I'm a <b>UI/UX Designer</b> focused on <b>Prototyping</b>. I enjoy turning ideas
@@ -132,6 +199,17 @@
           <div class="section-title">
               <h2>About Me</h2>
           </div>
+          
+          <!-- Profile Info -->
+          <div class="profile-info">
+              <img src="profile.jpg" alt="Mark Morales" class="about-profile-pic">
+              <div class="profile-details">
+                  <h3>MARK KEANON MORALES</h3>
+                  <p class="job-title">Aspiring UI/UX Designer</p>
+                  <p class="location">📍 Based in PH • Open to opportunities</p>
+              </div>
+          </div>
+          
           <div class="card">
               <p>
                   Hi! I'm <b>Mark Morales</b>, an aspiring <b>IT Student</b> with a passion for
