@@ -21,7 +21,8 @@
     a{color:var(--accent); text-decoration:none}
     a:hover{text-decoration:underline}
     .container{max-width:1100px;margin:0 auto;padding:24px}
-    header{position:sticky; top:0; z-index:20; backdrop-filter: blur(8px); background:#0f1223cc; border-bottom:1px solid #20243f}
+    main{padding-top:100px}
+    header{position:fixed; top:0; left:0; right:0; z-index:20; backdrop-filter: blur(8px); background:#0f1223cc; border-bottom:1px solid #20243f}
     .nav{display:flex;align-items:center;justify-content:space-between;gap:16px}
     .brand{display:flex;align-items:center;gap:16px}
     .profile-pic{width:80px;height:80px;border-radius:50%;object-fit:cover;border:2px solid var(--accent);box-shadow:0 0 0 4px rgba(124, 92, 255, 0.2)}
@@ -61,6 +62,11 @@
     footer{padding:28px 0; color:#9aa3b2; text-align:center; border-top:1px solid #20243f; margin-top:24px}
     .anchor{scroll-margin-top:80px}
     .mono{font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace; font-size:.95rem}
+    
+    /* Smooth scrolling for the entire page */
+    html {
+      scroll-behavior: smooth;
+    }
     .skills-grid{display:grid;grid-template-columns:repeat(auto-fit, minmax(200px, 1fr));gap:16px;margin-top:16px}
     .skill-card{background:linear-gradient(135deg, #1a1f3a, #14182e);border:1px solid #20243f;border-radius:12px;padding:16px;text-align:center}
     .skill-card h4{margin:0 0 8px;color:var(--accent)}
